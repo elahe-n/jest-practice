@@ -5,15 +5,16 @@ describe('Cookbook', () => {
     test('should allow a recipe to be added', () => {
       const myCookbook= new Cookbook();
       myCookbook.addRecipe("Bread", ['floar','water','yeast']);
-
       expect(myCookbook.recipes).toEqual({Bread: ['floar','water','yeast']})
-
     });
   });
 
   describe('Listing recipes', () => {
     test('should allow the recipes to be listed', () => {
-
+      const myCookbook= new Cookbook();
+      myCookbook.addRecipe("Bread", ['floar','water','yeast']);
+      const myRecipes=myCookbook.listRecipes();
+      expect(myRecipes).toEqual(['Bread']);
     });
   });
 
