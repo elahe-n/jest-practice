@@ -22,14 +22,17 @@ describe('Cookbook', () => {
     test('should allow the ingredients for a recipe to be retrieved', () => {
       const myCookbook= new Cookbook();
       myCookbook.addRecipe("Bread", ['floar','water','yeast']);
-      const myRecipes=myCookbook.getRecipe("Bread");
-      expect(myRecipes).toEqual([ 'floar', 'water', 'yeast' ]);
+      const myRecipe=myCookbook.getRecipe("Bread");
+      expect(myRecipe).toEqual([ 'floar', 'water', 'yeast' ]);
     });
   });
 
   describe('Deleting a recipe', () => {
     test('should allow a recipe to be deleted', () => {
-
+      const myCookbook= new Cookbook();
+      myCookbook.addRecipe("Bread", ['floar','water','yeast']);
+      myCookbook.removeRecipe("Bread");
+      expect(myCookbook.recipes).toEqual({});
     });
   });
 });
