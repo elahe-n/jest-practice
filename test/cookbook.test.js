@@ -20,7 +20,10 @@ describe('Cookbook', () => {
 
   describe('Retrieving a recipe', () => {
     test('should allow the ingredients for a recipe to be retrieved', () => {
-
+      const myCookbook= new Cookbook();
+      myCookbook.addRecipe("Bread", ['floar','water','yeast']);
+      const myRecipes=myCookbook.getRecipe("Bread");
+      expect(myRecipes).toEqual([ 'floar', 'water', 'yeast' ]);
     });
   });
 
