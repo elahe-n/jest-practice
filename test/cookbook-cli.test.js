@@ -4,7 +4,10 @@ const { CookbookCli } = require('../src/cookbook-cli');
 describe('CookbookCli', () => {
   describe('Adding recipes', () => {
     test('should accept the recipe information and display the correct message', () => {
-
+      const myCookbook= new Cookbook();
+      const myCookbookCli=new CookbookCli(myCookbook);
+      const message=myCookbookCli.add('Bread', ['floar','water','yeast']);
+      expect(message).toEqual('Successfully added the following recipe: Bread');
     });
   });
 
