@@ -24,7 +24,12 @@ describe('CookbookCli', () => {
 
   describe('Retrieving a recipe', () => {
     test('should display the ingredients required to make the specified recipe', () => {
-
+      const myCookbook= new Cookbook();
+      const myCookbookCli=new CookbookCli(myCookbook);
+      myCookbookCli.add('Bread', ['floar','water','yeast']);
+      myCookbookCli.add('Cake', ['floar','water','sugar']);
+      const message=myCookbookCli.get('Bread');
+      expect(message).toEqual('The ingredients for Bread are: floar,water,yeast');
     });
   });
 
