@@ -27,8 +27,11 @@ class CookbookCli {
   }
 
   remove(name) {
+    const message=this.cookbook.getRecipe(name)
+    if (message!==undefined){
     this.cookbook.removeRecipe(name);
-    return `Successfully removed the following recipe: ${name}`;
+    return `Successfully removed the following recipe: ${name}`;}
+    else {return `WARNING ! ${name} recipe does not exist, remove operation was failed !`;}
   }
 }
 
