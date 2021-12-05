@@ -23,7 +23,10 @@ class CookbookCli {
   }
 
   get(name) {
-    return `The ingredients for ${name} are: ${this.cookbook.getRecipe(name)}`;
+    const getMessage=this.cookbook.getRecipe(name)
+    if (getMessage!==undefined){
+    return `The ingredients for ${name} are: ${this.cookbook.getRecipe(name)}`;}
+    else {return `WARNING ! ${name} recipe does not exist, get operation was failed !`;}
   }
 
   remove(name) {
@@ -36,3 +39,5 @@ class CookbookCli {
 }
 
 module.exports = { CookbookCli };
+
+
