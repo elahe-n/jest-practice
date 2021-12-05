@@ -31,6 +31,12 @@ describe('CookbookCli', () => {
       const message=myCookbookCli.get('Bread');
       expect(message).toEqual('The ingredients for Bread are: floar,water,yeast');
     });
+    test('should show a warning message that the recipe does not exist', () => {
+      const myCookbook= new Cookbook();
+      const myCookbookCli=new CookbookCli(myCookbook);
+      const message=myCookbookCli.get('bread');
+      expect(message).toEqual('WARNING ! bread recipe does not exist, get operation was failed !');
+    });
   });
 
   describe('Deleting a recipe', () => {
