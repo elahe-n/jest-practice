@@ -41,5 +41,11 @@ describe('CookbookCli', () => {
       const message=myCookbookCli.remove('Bread');
       expect(message).toEqual('Successfully removed the following recipe: Bread');
     });
+    test('should show a warning message that the recipe does not exist', () => {
+      const myCookbook= new Cookbook();
+      const myCookbookCli=new CookbookCli(myCookbook);
+      const message=myCookbookCli.remove('bread');
+      expect(message).toEqual('WARNING ! bread recipe does not exist, remove operation was failed !');
+    });
   });
 });
