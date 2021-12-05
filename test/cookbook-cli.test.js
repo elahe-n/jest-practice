@@ -13,7 +13,12 @@ describe('CookbookCli', () => {
 
   describe('Listing recipes', () => {
     test('should display the correct message listing all of the recipe names', () => {
-
+      const myCookbook= new Cookbook();
+      const myCookbookCli=new CookbookCli(myCookbook);
+      myCookbookCli.add('Bread', ['floar','water','yeast']);
+      myCookbookCli.add('Cake', ['floar','water','sugar']);
+      const message=myCookbookCli.list();
+      expect(message).toEqual('You have the following recipes: Bread,Cake');
     });
   });
 
